@@ -1,4 +1,8 @@
-set number relativenumber
+call plug#begin('~/nvim/plugged')
+Plug 'tpope/vim-fugitive'
+call plug#end()
+
+set number
 filetype plugin indent on
 " show existing tab with 4 spaces width
 set tabstop=4
