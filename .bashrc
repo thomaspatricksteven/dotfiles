@@ -134,3 +134,7 @@ if [ -f "$HOME/.bash-git-prompt/gitprompt.sh" ]; then
         source $HOME/.bash-git-prompt/gitprompt.sh
 fi
 
+
+. $HOME/.asdf/asdf.sh
+
+. $HOME/.asdf/completions/asdf.bash
