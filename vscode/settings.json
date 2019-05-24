@@ -68,5 +68,12 @@
       "value": "#42b883"
     }
   ],
-  "material-icon-theme.showWelcomeMessage": false
+  "material-icon-theme.showWelcomeMessage": false,
+  "cSpell.userWords": [
+    "pronounceables"
+  ],
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "html.format.wrapAttributes": "force-aligned"
 }
