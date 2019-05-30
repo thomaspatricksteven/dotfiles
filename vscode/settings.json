@@ -25,11 +25,15 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "vim.mouseSelectionGoesIntoVisualMode": false,
+  "vim.handleKeys": {
+    "<C-b>": false
+  },
   "editor.lineNumbers": "relative",
   "editor.fontFamily": "'Hæck', 'monospace', monospace, 'Droid Sans Fallback'",
   "editor.fontLigatures": true,
   "editor.fontSize": 15,
   "workbench.colorTheme": "Winter is Coming (Dark Blue - No Italics)",
   "editor.lineHeight": 22,
-  "window.zoomLevel": 0
+  "window.zoomLevel": 0,
+  "git.autofetch": true
 }
