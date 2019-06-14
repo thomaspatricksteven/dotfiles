@@ -176,7 +176,7 @@ bar {
 # Tom config starts here
 bindsym $mod+shift+x exec i3lock --color "#2f343f"
 bindsym $mod+shift+u exec xinput --disable "TPPS/2 IBM TrackPoint"
-bindsym $mod+shift+u exec xinput --enable "TPPS/2 IBM TrackPoint"
+bindsym $mod+shift+y exec xinput --enable "TPPS/2 IBM TrackPoint"
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
