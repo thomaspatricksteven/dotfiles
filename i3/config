@@ -97,7 +97,7 @@ bindsym $mod+a focus parent
 set $ws1 "1: Terminal"
 set $ws2 "2: Browser"
 set $ws3 "3: Editor"
-set $ws4 "4: Slack"
+set $ws4 "4: Chat"
 set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
@@ -128,6 +128,10 @@ bindsym $mod+Shift+7 move container to workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
+
+assign [class="Slack"] $ws4
+assign [class="Code"] $ws3
+assign [class="Firefox Developer Edition"] $ws2
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
