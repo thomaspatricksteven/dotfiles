@@ -184,10 +184,19 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #d
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
 # set background
-exec always feh --bg-scale /home/tom/Pictures/wallpaper.jpg
+exec_always feh --bg-scale /home/tom/Pictures/wallpaper.jpg
 
 # set resolution
 exec xrandr --output eDP-1-1 --mode 2560x1440
 
 # disable touchpad
 exec xinput --disable "SynPS/2 Synaptics TouchPad"
+
+# dropbox
+exec dropbox start
+
+# wifi
+exec --no-startup-id nm-applet
+
+# redshift
+exec --no-startup-id redshift
