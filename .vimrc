@@ -2,8 +2,8 @@ call plug#begin('~/nvim/plugged')
 Plug 'takac/vim-hardtime'
 Plug 'w0rp/ale'
 Plug 'tpope/vim-vinegar'
+Plug 'ctrlpvim/ctrlp.vim'
 call plug#end()
-
 
 set relativenumber
 set noswapfile
@@ -21,9 +21,10 @@ set expandtab
 
 let g:hardtime_default_on = 1
 
-
 "---------Visuals---------"
 colorscheme atom-dark-256
+"colorscheme industry 
+
 "Use 256 colors in terminal vim.
 set t_CO=256 
 
@@ -50,6 +51,10 @@ augroup autosourcing
 augroup END
 
 
-"---------Fix Vinegar---------"
+"---------Pluging Setting---------"
+"Fix Vinegar
 nmap <Leader>- <Plug>VinegarUp
+
+"Ignore files in CtrlP
+let g:ctrlp_custom_ignore = 'node_modules\|git'
 nnoremap - -

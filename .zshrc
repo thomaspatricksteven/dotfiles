@@ -74,7 +74,7 @@ fi
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git wd vi-mode)
+plugins=(git wd vi-mode node)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -103,11 +103,13 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
+alias ll="ls -alh"
+alias :q="exit"
 # export
 export VISUAL=vim
 export EDITOR="$VISUAL"
-
+export TERM=xterm-256color
+export LANG=en_US.UTF-8
 . $HOME/.asdf/asdf.sh
 
 . $HOME/.asdf/completions/asdf.bash
