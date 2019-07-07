@@ -2,11 +2,16 @@ call plug#begin('~/nvim/plugged')
 Plug 'takac/vim-hardtime'
 Plug 'w0rp/ale'
 Plug 'tpope/vim-vinegar'
-Plug 'ctrlpvim/ctrlp.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'johngrib/vim-game-code-break'
+Plug '~/.fzf'
+Plug 'junegunn/fzf.vim'
 call plug#end()
 
 set relativenumber
 set noswapfile
+set nocompatible
 
 filetype plugin indent on
 
@@ -58,3 +63,4 @@ nmap <Leader>- <Plug>VinegarUp
 "Ignore files in CtrlP
 let g:ctrlp_custom_ignore = 'node_modules\|git'
 nnoremap - -
+
