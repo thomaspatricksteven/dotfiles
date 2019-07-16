@@ -1,0 +1,8 @@
+[user]
+name = tom
+email = thomaspatricksteven@gmail.com
+
+[alias]
+# Push the current branch to the remote "origin", and set it to track the upstream branch
+publish = "!git push -u origin $(git rev-parse --abbrev-ref HEAD)"
+
