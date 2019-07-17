@@ -1,12 +1,7 @@
 call plug#begin('~/nvim/plugged')
 Plug 'takac/vim-hardtime'
-Plug 'w0rp/ale'
-Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
-Plug 'johngrib/vim-game-code-break'
-Plug '~/.fzf'
-Plug 'junegunn/fzf.vim'
 call plug#end()
 
 set relativenumber
@@ -27,9 +22,6 @@ set expandtab
 let g:hardtime_default_on = 1
 
 "---------Visuals---------"
-colorscheme atom-dark-256
-"colorscheme industry 
-
 "Use 256 colors in terminal vim.
 set t_CO=256 
 
@@ -55,12 +47,4 @@ augroup autosourcing
   autocmd BufWritePost .vimrc source %
 augroup END
 
-
-"---------Pluging Setting---------"
-"Fix Vinegar
-nmap <Leader>- <Plug>VinegarUp
-
-"Ignore files in CtrlP
-let g:ctrlp_custom_ignore = 'node_modules\|git'
-nnoremap - -
 
