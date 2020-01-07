@@ -18,16 +18,15 @@ Plug 'HerringtonDarkholme/yats.vim' | "TS Syntax
 Plug 'francoiscabrol/ranger.vim' | "Use ranger in vim for file tree stuff.
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } | "Installs FZF on the system.
 Plug 'junegunn/fzf.vim' | "Fuzzy find. Find in project. Find file by name. Regex search. Much more.
-Plug 'junegunn/vim-peekaboo' | "See your registers before you access them.
 Plug 'morhetz/gruvbox' | "Color theme.
 Plug 'neoclide/coc.nvim', {'branch': 'release'}| "COC Vim is the backbone of modern Vim. It does all the IDE stuff.
 Plug 'tpope/vim-abolish' | "Text manipulation, including conversion to snake_case and camelCase.
 Plug 'tpope/vim-commentary' | "Add comments to code.
 Plug 'tpope/vim-fugitive'| "Git in Vim. Lots to learn, but really good.
 Plug 'tpope/vim-surround'| "Surround text with quotes, brackets, ect.
+Plug 'meain/vim-printer'
 "Plug 'takac/vim-hardtime' "Doesn't let you hit jkhl successively to move
 call plug#end()
-
 "--------------------------
 "Foundational settings
 "--------------------------
@@ -80,7 +79,7 @@ set shiftwidth=2 | "Use two spaces
 "--------------------------
 "Color settings
 "--------------------------
-set termguicolors | "Use the rigth colors
+set termguicolors | "Use the right colors
 colorscheme gruvbox
 
 "--------------------------
@@ -98,6 +97,11 @@ map <leader><space> :Rg<CR> | "Search in project files
 map <leader>t :Ranger<CR> | "Show file tree in ranger
 let g:ranger_map_keys = 0 | "Don't let ranger map keys
 
+
+let g:vim_printer_items = {
+      \ 'javascript': 'console.log("{$}:", {$})',
+      \ 'typescript': 'console.log("{$}:", {$})',
+      \ }
 
 "--------------------------
 "COC
@@ -242,7 +246,6 @@ let g:coc_global_extensions = [
       \ 'coc-highlight',
       \ 'coc-html',
       \ 'coc-json',
-      \ 'coc-markdownlint',
       \ 'coc-pairs',
       \ 'coc-phpls',
       \ 'coc-prettier',

@@ -1,0 +1,30 @@
+{
+  "suggest.noselect": false,
+  "coc.preferences.formatOnSaveFiletypes": [
+    "javascript",
+    "typescript",
+    "typescriptreact",
+    "javascriptreact",
+    "json",
+    "typescript.tsx",
+    "graphql",
+    "html",
+    "markdown",
+    "css",
+    "scss",
+    "php",
+    "ruby",
+    "bash"
+  ],
+  "solargraph.formatting": true,
+  "solargraph.diagnostics": true,
+  "languageserver": {
+    "bash": {
+      "command": "bash-language-server",
+      "args": ["start"],
+      "filetypes": ["sh"],
+      "ignoredRootPaths": ["~"]
+    }
+  }
+}
+
