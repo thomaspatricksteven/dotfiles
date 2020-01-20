@@ -93,9 +93,6 @@ nmap <leader>/ :nohlsearch<cr> | "Clear search highlight.
 map <leader>f :FZF<CR> | "Search files
 map <leader>h :History<CR> | "Search Recent files
 map <leader><space> :Rg<CR> | "Search in project files
-map <leader>t :Ranger<CR> | "Show file tree in ranger
-let g:ranger_map_keys = 0 | "Don't let ranger map keys
-
 
 let g:vim_printer_items = {
       \ 'javascript': 'console.log("{$}:", {$})',
