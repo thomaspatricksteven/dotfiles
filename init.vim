@@ -15,17 +15,16 @@
 
 call plug#begin('~/nvim/plugged')
 Plug 'HerringtonDarkholme/yats.vim' | "TS Syntax
-Plug 'francoiscabrol/ranger.vim' | "Use ranger in vim for file tree stuff.
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } | "Installs FZF on the system.
 Plug 'junegunn/fzf.vim' | "Fuzzy find. Find in project. Find file by name. Regex search. Much more.
+Plug 'meain/vim-printer'
 Plug 'morhetz/gruvbox' | "Color theme.
 Plug 'neoclide/coc.nvim', {'branch': 'release'}| "COC Vim is the backbone of modern Vim. It does all the IDE stuff.
 Plug 'tpope/vim-abolish' | "Text manipulation, including conversion to snake_case and camelCase.
 Plug 'tpope/vim-commentary' | "Add comments to code.
 Plug 'tpope/vim-fugitive'| "Git in Vim. Lots to learn, but really good.
 Plug 'tpope/vim-surround'| "Surround text with quotes, brackets, ect.
-Plug 'meain/vim-printer'
-"Plug 'takac/vim-hardtime' "Doesn't let you hit jkhl successively to move
+Plug 'tpope/vim-vinegar'| "Makes the default vim file tree (netrw) much better
 call plug#end()
 "--------------------------
 "Foundational settings
