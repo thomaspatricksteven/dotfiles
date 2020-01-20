@@ -25,6 +25,7 @@ Plug 'tpope/vim-commentary' | "Add comments to code.
 Plug 'tpope/vim-fugitive'| "Git in Vim. Lots to learn, but really good.
 Plug 'tpope/vim-surround'| "Surround text with quotes, brackets, ect.
 Plug 'tpope/vim-vinegar'| "Makes the default vim file tree (netrw) much better
+Plug 'itchyny/lightline.vim'
 call plug#end()
 "--------------------------
 "Foundational settings
@@ -40,6 +41,7 @@ set splitbelow | "New buffers open below, not above
 set splitright | "New buffers open to the right, not left
 set nocompatible | "Don't try to work with older vim
 set noswapfile | "Don't use swap files 
+set noshowmode | "Don't show mode, plugin does it already
 
 "Resize buffers when window changes sizes
 autocmd VimResized * execute "normal! \<c-w>=" 
