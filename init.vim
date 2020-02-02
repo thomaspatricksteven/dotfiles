@@ -20,13 +20,13 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } | "Installs FZ
 Plug 'junegunn/fzf.vim' | "Fuzzy find. Find in project. Find file by name. Regex search. Much more.
 Plug 'liuchengxu/space-vim-dark'
 Plug 'meain/vim-printer'
+Plug 'morhetz/gruvbox' | "Color scheme"
 Plug 'neoclide/coc.nvim', {'branch': 'release'}| "COC Vim is the backbone of modern Vim. It does all the IDE stuff.
 Plug 'tpope/vim-abolish' | "Text manipulation, including conversion to snake_case and camelCase.
 Plug 'tpope/vim-commentary' | "Add comments to code.
 Plug 'tpope/vim-fugitive'| "Git in Vim. Lots to learn, but really good.
 Plug 'tpope/vim-surround'| "Surround text with quotes, brackets, ect.
 Plug 'tpope/vim-vinegar'| "Makes the default vim file tree (netrw) much better
-Plug 'atelierbram/vim-colors_atelier-schemes'
 call plug#end()
 "--------------------------
 "Foundational settings
@@ -82,8 +82,7 @@ set shiftwidth=2 | "Use two spaces
 "Color settings
 "--------------------------
 set termguicolors | "Use the right colors
-" colorscheme space-vim-dark
-colorscheme Atelier_SulphurpoolDark
+colorscheme gruvbox
 
 hi Comment cterm=italic
 set background=dark
