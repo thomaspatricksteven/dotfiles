@@ -15,6 +15,7 @@
 
 call plug#begin('~/nvim/plugged')
 Plug 'HerringtonDarkholme/yats.vim' | "TS Syntax
+Plug 'airblade/vim-gitgutter' | "git info in editor
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } | "Installs FZF on the system.
 Plug 'junegunn/fzf.vim' | "Fuzzy find. Find in project. Find file by name. Regex search. Much more.
