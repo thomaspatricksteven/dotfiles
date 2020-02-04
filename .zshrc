@@ -12,10 +12,11 @@ alias notes:temp="vim ~/temp/temp"
 export XDG_CONFIG_HOME="$HOME/.config"
 export TERMINAL="kitty"
 export EDITOR="nvim"
+export VISUAL="nvim"
 export BROWSER="firefox-developer-edition"
 
 # vi mode
-bindkey -vi
+bindkey -v
 export KEYTIMEOUT=1
 
 autoload -Uz compinit

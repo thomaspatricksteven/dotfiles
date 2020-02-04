@@ -21,6 +21,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } | "Installs FZ
 Plug 'junegunn/fzf.vim' | "Fuzzy find. Find in project. Find file by name. Regex search. Much more.
 Plug 'liuchengxu/space-vim-dark'
 Plug 'meain/vim-printer'
+Plug 'mhinz/vim-grepper' | "Grep vim
 Plug 'morhetz/gruvbox' | "Color scheme"
 Plug 'neoclide/coc.nvim', {'branch': 'release'}| "COC Vim is the backbone of modern Vim. It does all the IDE stuff.
 Plug 'tpope/vim-abolish' | "Text manipulation, including conversion to snake_case and camelCase.
@@ -99,7 +100,10 @@ let mapleader = "\<space>"
 nmap <leader>/ :nohlsearch<cr> | "Clear search highlight.
 map <leader>f :FZF<CR> | "Search files
 map <leader>h :History<CR> | "Search Recent files
-map <leader><space> :Rg<CR> | "Search in project files
+map <leader><space> :Grepper<CR> | "Search in project files
+
+nmap gs  <plug>(GrepperOperator)
+xmap gs  <plug>(GrepperOperator)
 
 let g:vim_printer_items = {
       \ 'javascript': 'console.log("{$}:", {$})',
