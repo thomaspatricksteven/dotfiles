@@ -14,6 +14,10 @@ export TERMINAL="kitty"
 export EDITOR="nvim"
 export BROWSER="firefox-developer-edition"
 
+# vi mode
+bindkey -vi
+export KEYTIMEOUT=1
+
 autoload -Uz compinit
 compinit
 
