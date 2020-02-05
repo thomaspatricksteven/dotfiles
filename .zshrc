@@ -22,6 +22,8 @@ export KEYTIMEOUT=1
 autoload -Uz compinit
 compinit
 
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}'
+
 . $HOME/.asdf/asdf.sh
 
 . $HOME/.asdf/completions/asdf.bash
