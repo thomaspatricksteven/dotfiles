@@ -1,3 +1,5 @@
 [user]
-name = tom
-email = thomaspatricksteven@gmail.com
+	email = thomaspatricksteven@gmail.com
+	name = tom
+[help]
+	autocorrect = 10
