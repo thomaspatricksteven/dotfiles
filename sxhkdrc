@@ -130,11 +130,11 @@ XF86AudioMute
 
 # raise volume
 XF86AudioRaiseVolume
-  pactl set-sink-volume @DEFAULT_SINK@ +1000
+  pactl set-sink-volume @DEFAULT_SINK@ +3000
 
 # lower volume
 XF86AudioLowerVolume
-  pactl set-sink-volume @DEFAULT_SINK@ -1000
+  pactl set-sink-volume @DEFAULT_SINK@ -3000
 
 # raise brightness
 XF86MonBrightnessUp

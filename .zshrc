@@ -9,11 +9,19 @@ alias ll="ls -alh"
 alias notes="vim ~/Dropbox/notes.md"
 alias notes:temp="vim ~/temp/temp"                                                           
 
+# Recent commits 
+function g-recent {
+    readonly hours=${1:?"The hours must be specified."}
+    git rev-list --no-merges HEAD --not $(git rev-list -n1 --before="${hours} hours" --first-parent HEAD) --pretty
+}
+
 export XDG_CONFIG_HOME="$HOME/.config"
 export TERMINAL="kitty"
 export EDITOR="nvim"
 export VISUAL="nvim"
 export BROWSER="firefox-developer-edition"
+export XDG_CONFIG_HOME=$HOME/.config
+export XDG_DATA_HOME=$HOME/.local/share
 
 # vi mode
 bindkey -v

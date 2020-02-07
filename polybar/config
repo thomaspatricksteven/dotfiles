@@ -50,7 +50,7 @@ font-3 = "Font Awesome 5 Brands:pixelsize=10;3"
 
 modules-left = bspwm
 modules-center = tom-label
-modules-right = xkeyboard filesystem memory cpu wlan eth battery temperature powermenu pulseaudio date
+modules-right = xkeyboard filesystem memory cpu wlan eth battery temperature pulseaudio date
 
 tray-position = right
 tray-padding = 2
@@ -289,10 +289,9 @@ thermal-zone = 0
 warn-temperature = 60
 
 format = <ramp> <label>
-format-underline = #f50a4d
+format-underline = #4d0af5
 format-warn = <ramp> <label-warn>
-format-warn-underline = ${self.format-underline}
-
+format-warn-underline = #f50a4d
 label = COOL %temperature-c%
 label-warn = HOT %temperature-c%
 label-warn-foreground = ${colors.secondary}
