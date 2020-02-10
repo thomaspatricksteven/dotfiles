@@ -24,6 +24,7 @@ Plug 'meain/vim-printer'
 Plug 'mhinz/vim-grepper' | "Grep vim
 Plug 'morhetz/gruvbox' | "Color scheme"
 Plug 'neoclide/coc.nvim', {'branch': 'release'}| "COC Vim is the backbone of modern Vim. It does all the IDE stuff.
+Plug 'rhysd/git-messenger.vim' | " TODO
 Plug 'tpope/vim-abolish' | "Text manipulation, including conversion to snake_case and camelCase.
 Plug 'tpope/vim-commentary' | "Add comments to code.
 Plug 'tpope/vim-fugitive'| "Git in Vim. Lots to learn, but really good.
@@ -100,7 +101,8 @@ let mapleader = "\<space>"
 nmap <leader>/ :nohlsearch<cr> | "Clear search highlight.
 map <leader>f :FZF<CR> | "Search files
 map <leader>h :History<CR> | "Search Recent files
-map <leader><space> :Grepper<CR> | "Search in project files
+map <leader>g :Grepper<CR> | "Search using grepper
+map <leader><space> :Rg<CR> | "Search in project files
 
 nmap gs  <plug>(GrepperOperator)
 xmap gs  <plug>(GrepperOperator)
@@ -109,6 +111,10 @@ let g:vim_printer_items = {
       \ 'javascript': 'console.log("{$}:", {$})',
       \ 'typescript': 'console.log("{$}:", {$})',
       \ }
+
+" Allow netrw to remove non-empty local directories
+let g:netrw_localrmdir='rm -rf'
+let g:netrw_rmdir_cmd='rm -rf'
 
 "--------------------------
 "COC
@@ -261,3 +267,5 @@ let g:coc_global_extensions = [
       \ 'coc-tsserver',
       \ 'coc-yaml',
       \]
+
+let $NVIM_COC_LOG_LEVEL = 'debug'
