@@ -50,7 +50,7 @@ font-3 = "Font Awesome 5 Brands:pixelsize=10;3"
 
 modules-left = bspwm
 ;modules-center = tom-label
-modules-right = filesystem memory cpu wlan eth battery temperature pulseaudio date
+modules-right = filesystem memory cpu wlan eth battery battery-1 temperature pulseaudio date
 
 tray-position = right
 tray-padding = 2
@@ -271,9 +271,9 @@ type = internal/battery
 battery = BAT0
 adapter = AC
 full-at = 98
-label-charging = Charging %percentage%%
-label-discharging = Discharging %percentage%%
-label-full = Fully Charged
+label-charging = BAT 0 ⚡ %percentage%%
+label-discharging = BAT 0 %percentage%%
+label-full = BAT 0 ⚡ Fully Charged
 
 format-charging = <label-charging>
 format-charging-underline = #ffb52a
@@ -282,6 +282,24 @@ format-discharging = <label-discharging>
 format-discharging-underline = ${self.format-charging-underline}
 
 format-full-underline = ${self.format-charging-underline}
+
+[module/battery-1]
+type = internal/battery
+battery = BAT1
+adapter = AC
+full-at = 98
+label-charging = BAT 1 ⚡ %percentage%%
+label-discharging = BAT 1 %percentage%%
+label-full = BAT 1 ⚡ Fully Charged
+
+format-charging = <label-charging>
+format-charging-underline = #ffb52a
+
+format-discharging = <label-discharging>
+format-discharging-underline = ${self.format-charging-underline}
+
+format-full-underline = ${self.format-charging-underline}
+
 
 [module/temperature]
 type = internal/temperature
