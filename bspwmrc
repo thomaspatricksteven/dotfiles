@@ -4,12 +4,12 @@ xrandr --output eDP-1 --mode 2560x1440
 polybar bar &
 sxhkd &
 picom &
-nitrogen --restore &
 flameshot &
 dropbox &
 nm-applet &
 dunst &
 redshift &
+nitrogen --restore &
 
 bspc monitor -d terminal browser editor slack V VI VII VIII IX X
 
@@ -25,3 +25,5 @@ bspc rule -a firefoxdeveloperedition desktop='^2'
 
 sleep 1
 xrandr --output HDMI-2 --same-as eDP-1
+sleep 1
+nitrogen --restore &

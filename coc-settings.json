@@ -16,5 +16,8 @@
     "ruby"
   ],
   "solargraph.formatting": true,
-  "solargraph.diagnostics": true
+  "solargraph.diagnostics": true,
+  "diagnostic-languageserver.filetypes": {
+    "sh": "shellcheck"
+  }
 }

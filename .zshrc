@@ -15,6 +15,12 @@ function g-recent {
     git rev-list --no-merges HEAD --not $(git rev-list -n1 --before="${hours} hours" --first-parent HEAD) --pretty
 }
 
+# function command_not_found_handler {
+#   echo "hey!"
+#   echo "$@"
+#   return 127
+# }
+
 export XDG_CONFIG_HOME="$HOME/.config"
 export TERMINAL="kitty"
 export EDITOR="nvim"
@@ -22,6 +28,7 @@ export VISUAL="nvim"
 export BROWSER="firefox-developer-edition"
 export XDG_CONFIG_HOME=$HOME/.config
 export XDG_DATA_HOME=$HOME/.local/share
+export PATH=~/.local/bin:$PATH
 
 # vi mode
 bindkey -v

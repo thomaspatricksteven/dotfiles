@@ -19,6 +19,9 @@ Plug 'airblade/vim-gitgutter' | "git info in editor
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } | "Installs FZF on the system.
 Plug 'junegunn/fzf.vim' | "Fuzzy find. Find in project. Find file by name. Regex search. Much more.
+Plug 'junegunn/goyo.vim' | "Distraction free mode
+Plug 'junegunn/limelight.vim' | "Text highlighting
+Plug 'junegunn/vim-peekaboo' | "Show registers
 Plug 'liuchengxu/space-vim-dark'
 Plug 'meain/vim-printer'
 Plug 'mhinz/vim-grepper' | "Grep vim
@@ -30,6 +33,7 @@ Plug 'tpope/vim-commentary' | "Add comments to code.
 Plug 'tpope/vim-fugitive'| "Git in Vim. Lots to learn, but really good.
 Plug 'tpope/vim-surround'| "Surround text with quotes, brackets, ect.
 Plug 'tpope/vim-vinegar'| "Makes the default vim file tree (netrw) much better
+Plug 'unblevable/quick-scope' | " Highlight f motions
 call plug#end()
 "--------------------------
 "Foundational settings
