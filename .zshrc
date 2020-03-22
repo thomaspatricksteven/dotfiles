@@ -3,11 +3,22 @@ HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 setopt appendhistory
+setopt SHARE_HISTORY
 
 alias vim=nvim
 alias ll="ls -alh"
 alias notes="vim ~/Dropbox/notes.md"
-alias notes:temp="vim ~/temp/temp"                                                           
+alias notes:temp="vim ~/temp/temp" 
+alias icat="kitty +kitten icat"
+alias dc="docker-compose"
+alias open="xdg-open"
+
+alias humi="cd ~/code/humility"
+alias ui="cd ~/code/humility/applications/ui"
+alias hr="cd ~/code/humility/applications/hr"
+alias payroll="cd ~/code/humility/applications/payroll"
+alias admin="cd ~/code/humility/applications/admin"
+
 
 # Recent commits 
 function g-recent {
@@ -29,6 +40,7 @@ export BROWSER="firefox-developer-edition"
 export XDG_CONFIG_HOME=$HOME/.config
 export XDG_DATA_HOME=$HOME/.local/share
 export PATH=~/.local/bin:$PATH
+export PATH="$HOME/.cargo/bin:$PATH"
 
 # vi mode
 bindkey -v
@@ -53,18 +65,15 @@ if [[ "$(tty)" = "/dev/tty1" ]]; then
  else
 fi
 
-# If terminal emulator
-if [[ "$(tty)" = *"pts"* ]];then
-   # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-   # Initialization code that may require console input (password prompts, [y/n]
-   # confirmations, etc.) must go above this block, everything else may go below.
-   if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-     source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-   fi
+# prompt
+NEWLINE=$'\n'
+PROMPT='${NEWLINE}%(?..😿 %F{red}%?%f${NEWLINE})%F{green}%n%f in %F{blue}%~%f $vcs_info_msg_0_ %f${NEWLINE}-> '
 
-   source ~/.zsh/plugins/powerlevel10k/powerlevel10k.zsh-theme
-   # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-   [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-fi
+#git prompt
+autoload -Uz vcs_info
+precmd_vcs_info() { vcs_info }
+precmd_functions+=( precmd_vcs_info )
+setopt prompt_subst
+zstyle ':vcs_info:git:*' formats 'on %F{yellow}%b '
+zstyle ':vcs_info:*' enable git
 
-pfetch

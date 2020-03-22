@@ -1,13 +1,15 @@
 #! /bin/sh
 
-xrandr --output eDP-1 --mode 2560x1440
-polybar bar &
+xrandr --output eDP1 --mode 2560x1440
+~/.config/polybar/launch.sh & 
 sxhkd &
-picom &
 flameshot &
 dropbox &
+picom &
+copyq &
 nm-applet &
 dunst &
+udiskie &
 redshift &
 nitrogen --restore &
 
@@ -22,8 +24,9 @@ bspc config gapless_monocle      true
 
 bspc rule -a Slack desktop='^4'
 bspc rule -a firefoxdeveloperedition desktop='^2'
+bspc rule -a Peek state=floating
 
-sleep 1
-xrandr --output HDMI-2 --same-as eDP-1
+sleep 3
+xrandr --output HDMI2 --same-as eDP1
 sleep 1
 nitrogen --restore &
