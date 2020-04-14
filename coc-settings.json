@@ -13,11 +13,40 @@
     "css",
     "scss",
     "php",
-    "ruby"
+    "ruby",
+    "rust"
   ],
   "solargraph.formatting": true,
   "solargraph.diagnostics": true,
   "diagnostic-languageserver.filetypes": {
     "sh": "shellcheck"
-  }
+  },
+  "cSpell.userWords": [
+    "Colemak",
+    "Covid",
+    "Drasner's",
+    "Humi",
+    "Intellij",
+    "JIRA",
+    "Laravel",
+    "Maatwebsite",
+    "Macbook",
+    "Macroable",
+    "Manjaro",
+    "Neovim",
+    "Percona",
+    "Postgres",
+    "Queueable",
+    "Thinkpad",
+    "autosaved",
+    "borderless",
+    "bspwm",
+    "monospace",
+    "mycli",
+    "nightfly",
+    "pdfs",
+    "repos",
+    "tomontheinternet",
+    "webm"
+  ]
 }

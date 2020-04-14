@@ -16,30 +16,31 @@
 call plug#begin('~/nvim/plugged')
 Plug 'HerringtonDarkholme/yats.vim' | "TS Syntax
 Plug 'airblade/vim-gitgutter' | "git info in editor
-Plug 'itchyny/lightline.vim'
+Plug 'bluz71/vim-nightfly-guicolors' | "color scheme
+Plug 'itchyny/lightline.vim' | "Status bar
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } | "Installs FZF on the system.
 Plug 'junegunn/fzf.vim' | "Fuzzy find. Find in project. Find file by name. Regex search. Much more.
 Plug 'junegunn/goyo.vim' | "Distraction free mode
 Plug 'junegunn/limelight.vim' | "Text highlighting
 Plug 'junegunn/vim-peekaboo' | "Show registers
-Plug 'liuchengxu/space-vim-dark'
-Plug 'meain/vim-printer'
 Plug 'mhinz/vim-grepper' | "Grep vim
-Plug 'morhetz/gruvbox' | "Color scheme"
 Plug 'neoclide/coc.nvim', {'branch': 'release'}| "COC Vim is the backbone of modern Vim. It does all the IDE stuff.
-Plug 'rhysd/git-messenger.vim' | " TODO
+Plug 'pechorin/any-jump.vim' | " Any jump let's you jump to related places.
+Plug 'rhysd/git-messenger.vim' | "View git commit information
+Plug 'sheerun/vim-polyglot' | "A language pack
 Plug 'tpope/vim-abolish' | "Text manipulation, including conversion to snake_case and camelCase.
 Plug 'tpope/vim-commentary' | "Add comments to code.
 Plug 'tpope/vim-fugitive'| "Git in Vim. Lots to learn, but really good.
 Plug 'tpope/vim-surround'| "Surround text with quotes, brackets, ect.
 Plug 'tpope/vim-vinegar'| "Makes the default vim file tree (netrw) much better
-Plug 'unblevable/quick-scope' | " Highlight f motions
+Plug 'wellle/targets.vim'
 call plug#end()
+
 "--------------------------
 "Foundational settings
 "--------------------------
 "These settings are sane defaults
-"They make vim useable
+"They make Vim usable
 
 syntax on | "Syntax highlighting
 set showcmd | "Makes the command visible as typed
@@ -50,6 +51,9 @@ set splitright | "New buffers open to the right, not left
 set nocompatible | "Don't try to work with older vim
 set noswapfile | "Don't use swap files 
 set noshowmode | "Don't show mode, plugin does it already
+set noemoji | "Fixes emoji double width
+set undofile | "Allows undo after closing and reopening a file
+set spell | "Spell check
 
 "Resize buffers when window changes sizes
 autocmd VimResized * execute "normal! \<c-w>=" 
@@ -64,7 +68,7 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-" Triger `autoread` when files changes on disk
+" Trigger `autoread` when files changes on disk
 " This is the default behaviour of most other editors
 autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif
 autocmd FileChangedShellPost * echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
@@ -73,12 +77,12 @@ autocmd FileChangedShellPost * echohl WarningMsg | echo "File changed on disk. B
 "Search settings
 "--------------------------
 set ignorecase | "Case insensitive by default
-set smartcase | "If you use Captials, search is case sensitve
+set smartcase | "If you use Capitals, search is case sensitive
 set hlsearch | "Highlight as you search
 set incsearch | "Start searching as you type
 
 "--------------------------
-"Identation settings
+"Indentation settings
 "--------------------------
 set cindent | "Smart indentation
 set expandtab | "Tabs convert to spaces
@@ -89,7 +93,10 @@ set shiftwidth=2 | "Use two spaces
 "Color settings
 "--------------------------
 set termguicolors | "Use the right colors
-colorscheme gruvbox
+colorscheme nightfly
+let g:lightline = { 'colorscheme': 'nightfly' }
+let g:nightflyCursorColor = 1
+let g:nightflyUnderlineMatchParen = 1
 
 hi Comment cterm=italic
 set background=dark
@@ -97,7 +104,7 @@ set background=dark
 "--------------------------
 "Mappings
 "--------------------------
-"These are the mappins I like. You might hate them.
+"These are the mappings I like. You might hate them.
 
 "Set leader to space. If you don't know what leader is,
 "you should learn.
@@ -126,7 +133,6 @@ let g:netrw_rmdir_cmd='rm -rf'
 "EVERYTHING below is COC Vim
 "This makes vim behave like an IDE
 
-" if hidden is not set, TextEdit might fail.
 set hidden
 
 " Some servers have issues with backup files, see #649
@@ -267,6 +273,7 @@ let g:coc_global_extensions = [
       \ 'coc-phpls',
       \ 'coc-prettier',
       \ 'coc-snippets',
+      \ 'coc-spell-checker',
       \ 'coc-solargraph',
       \ 'coc-tsserver',
       \ 'coc-yaml',

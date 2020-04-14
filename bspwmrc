@@ -1,6 +1,7 @@
 #! /bin/sh
 
-xrandr --output eDP1 --mode 2560x1440
+xrandr --output eDP-1 --mode 2560x1440
+xrandr --output HDMI-2 --same-as eDP-1
 ~/.config/polybar/launch.sh & 
 sxhkd &
 flameshot &
@@ -21,12 +22,11 @@ bspc config window_gap          20
 bspc config split_ratio          0.52
 bspc config borderless_monocle   true
 bspc config gapless_monocle      true
+bspc config ignore_ewmh_focus    true
 
 bspc rule -a Slack desktop='^4'
 bspc rule -a firefoxdeveloperedition desktop='^2'
 bspc rule -a Peek state=floating
 
-sleep 3
-xrandr --output HDMI2 --same-as eDP1
 sleep 1
 nitrogen --restore &
