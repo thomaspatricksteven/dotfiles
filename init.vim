@@ -1,5 +1,5 @@
 "--------------------------
-"Tom's Vim RC 
+"Tom's Vim RC
 "--------------------------
 "
 "These are my NeoVim settings, but they should work with standard vim, too
@@ -49,14 +49,21 @@ set diffopt=vertical | "Git diffs open vertically
 set splitbelow | "New buffers open below, not above
 set splitright | "New buffers open to the right, not left
 set nocompatible | "Don't try to work with older vim
-set noswapfile | "Don't use swap files 
+set noswapfile | "Don't use swap files
 set noshowmode | "Don't show mode, plugin does it already
 set noemoji | "Fixes emoji double width
 set undofile | "Allows undo after closing and reopening a file
 set spell | "Spell check
 
 "Resize buffers when window changes sizes
-autocmd VimResized * execute "normal! \<c-w>=" 
+autocmd VimResized * execute "normal! \<c-w>="
+
+" Trigger `autoread` when files changes on disk
+" This is the default behaviour of most other editors
+autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif
+autocmd FileChangedShellPost * echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
+
+autocmd BufWritePre * %s/\s\+$//e
 
 "Pay attention to file types and indentation
 filetype plugin indent on
@@ -68,10 +75,6 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-" Trigger `autoread` when files changes on disk
-" This is the default behaviour of most other editors
-autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif
-autocmd FileChangedShellPost * echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
 
 "--------------------------
 "Search settings
@@ -236,7 +239,7 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 " use `:OR` for organize import of current buffer
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 
-" use `:Prettier` to run prettier 
+" use `:Prettier` to run prettier
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 " Add status line support, for integration with other plugin, checkout `:h coc-status`

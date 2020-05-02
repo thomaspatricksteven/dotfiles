@@ -11,7 +11,7 @@ alias ll="ls -Alh"
 alias ls="lsd"
 alias cat="bat"
 alias notes="vim ~/Dropbox/notes.md"
-alias notes:temp="vim ~/temp/temp" 
+alias notes:temp="vim ~/temp/temp"
 alias icat="kitty +kitten icat"
 alias dc="docker-compose"
 alias open="xdg-open"
@@ -25,18 +25,6 @@ alias hr="cd ~/code/humility/applications/hr"
 alias payroll="cd ~/code/humility/applications/payroll"
 alias admin="cd ~/code/humility/applications/admin"
 
-# Recent commits 
-function g-recent {
-    readonly hours=${1:?"The hours must be specified."}
-    git rev-list --no-merges HEAD --not $(git rev-list -n1 --before="${hours} hours" --first-parent HEAD) --pretty
-}
-
-# function command_not_found_handler {
-#   echo "hey!"
-#   echo "$@"
-#   return 127
-# }
-
 export XDG_CONFIG_HOME="$HOME/.config"
 export TERMINAL="kitty"
 export EDITOR="nvim"
@@ -45,9 +33,8 @@ export BROWSER="firefox-developer-edition"
 export XDG_CONFIG_HOME=$HOME/.config
 export XDG_DATA_HOME=$HOME/.local/share
 export PATH=~/.local/bin:$PATH
-export PATH="$HOME/.cargo/bin:$PATH"
 
-# vi mode
+# Vim mode
 bindkey -v
 export KEYTIMEOUT=1
 
@@ -56,8 +43,8 @@ compinit
 
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}'
 
+# asdf
 . $HOME/.asdf/asdf.sh
-
 . $HOME/.asdf/completions/asdf.bash
 
 # plugins
@@ -66,10 +53,7 @@ source ~/.zsh/plugins/zsh-z/zsh-z.plugin.zsh
 source ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
 source ~/.config/lf/lfcd.sh
 
-if [[ "$(tty)" = "/dev/tty1" ]]; then
-	 startx
- else
-fi
+[[ "$(tty)" = "/dev/tty1" ]] && startx;
 
 # prompt
 NEWLINE=$'\n'
@@ -83,6 +67,10 @@ setopt prompt_subst
 zstyle ':vcs_info:git:*' formats 'on %F{yellow}%b '
 zstyle ':vcs_info:*' enable git
 
+# quote
+printf "\n$(shuf -n 1 ~/code/quotes/quotes)"
+
+# logo
 printf "\n\n"
 logo
 #big-logo
