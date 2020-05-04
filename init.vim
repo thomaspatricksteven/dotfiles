@@ -17,12 +17,14 @@ call plug#begin('~/nvim/plugged')
 Plug 'HerringtonDarkholme/yats.vim' | "TS Syntax
 Plug 'airblade/vim-gitgutter' | "git info in editor
 Plug 'bluz71/vim-nightfly-guicolors' | "color scheme
+Plug 'chr4/nginx.vim' | "nginx colors
 Plug 'itchyny/lightline.vim' | "Status bar
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } | "Installs FZF on the system.
 Plug 'junegunn/fzf.vim' | "Fuzzy find. Find in project. Find file by name. Regex search. Much more.
 Plug 'junegunn/goyo.vim' | "Distraction free mode
 Plug 'junegunn/limelight.vim' | "Text highlighting
 Plug 'junegunn/vim-peekaboo' | "Show registers
+Plug 'machakann/vim-highlightedyank'
 Plug 'mhinz/vim-grepper' | "Grep vim
 Plug 'neoclide/coc.nvim', {'branch': 'release'}| "COC Vim is the backbone of modern Vim. It does all the IDE stuff.
 Plug 'pechorin/any-jump.vim' | " Any jump let's you jump to related places.
@@ -33,11 +35,7 @@ Plug 'tpope/vim-commentary' | "Add comments to code.
 Plug 'tpope/vim-fugitive'| "Git in Vim. Lots to learn, but really good.
 Plug 'tpope/vim-surround'| "Surround text with quotes, brackets, etc.
 Plug 'tpope/vim-vinegar'| "Makes the default vim file tree (netrw) much better
-Plug 'wellle/targets.vim'
-Plug 'shmargum/vim-sass-colors'
-Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
-Plug 'machakann/vim-highlightedyank'
-Plug 'chr4/nginx.vim'
+Plug 'wellle/targets.vim' | "Additional text targets, like `ci,`
 call plug#end()
 
 "--------------------------
@@ -284,4 +282,3 @@ let g:coc_global_extensions = [
       \ 'coc-yaml',
       \]
 
-let $NVIM_COC_LOG_LEVEL = 'debug'
