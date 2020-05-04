@@ -31,9 +31,13 @@ Plug 'sheerun/vim-polyglot' | "A language pack
 Plug 'tpope/vim-abolish' | "Text manipulation, including conversion to snake_case and camelCase.
 Plug 'tpope/vim-commentary' | "Add comments to code.
 Plug 'tpope/vim-fugitive'| "Git in Vim. Lots to learn, but really good.
-Plug 'tpope/vim-surround'| "Surround text with quotes, brackets, ect.
+Plug 'tpope/vim-surround'| "Surround text with quotes, brackets, etc.
 Plug 'tpope/vim-vinegar'| "Makes the default vim file tree (netrw) much better
 Plug 'wellle/targets.vim'
+Plug 'shmargum/vim-sass-colors'
+Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
+Plug 'machakann/vim-highlightedyank'
+Plug 'chr4/nginx.vim'
 call plug#end()
 
 "--------------------------
@@ -54,6 +58,8 @@ set noshowmode | "Don't show mode, plugin does it already
 set noemoji | "Fixes emoji double width
 set undofile | "Allows undo after closing and reopening a file
 set spell | "Spell check
+set wildmode=longest,list,full | "Make tab completion work like bash
+set inccommand=nosplit
 
 "Resize buffers when window changes sizes
 autocmd VimResized * execute "normal! \<c-w>="
@@ -120,11 +126,6 @@ map <leader><space> :Rg<CR> | "Search in project files
 
 nmap gs  <plug>(GrepperOperator)
 xmap gs  <plug>(GrepperOperator)
-
-let g:vim_printer_items = {
-      \ 'javascript': 'console.log("{$}:", {$})',
-      \ 'typescript': 'console.log("{$}:", {$})',
-      \ }
 
 " Allow netrw to remove non-empty local directories
 let g:netrw_localrmdir='rm -rf'
@@ -268,6 +269,7 @@ let g:coc_global_extensions = [
       \ 'coc-angular',
       \ 'coc-css',
       \ 'coc-docker',
+      \ 'coc-diagnostic',
       \ 'coc-emmet',
       \ 'coc-highlight',
       \ 'coc-html',

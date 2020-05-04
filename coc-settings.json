@@ -21,32 +21,51 @@
   "diagnostic-languageserver.filetypes": {
     "sh": "shellcheck"
   },
+  "diagnostic-languageserver.formatFiletypes": {
+    "sh": "shfmt"
+  },
+  "diagnostic-languageserver.formatters": {
+    "shfmt": {
+      "command": "shfmt"
+    }
+  },
   "cSpell.userWords": [
+    "Authorizable",
     "Colemak",
     "Covid",
     "Drasner's",
+    "Fireable",
+    "Greetable",
     "Humi",
     "Intellij",
     "JIRA",
     "Laravel",
+    "Lato",
     "Maatwebsite",
     "Macbook",
     "Macroable",
     "Manjaro",
     "Neovim",
+    "Paginator",
     "Percona",
     "Postgres",
     "Queueable",
     "Thinkpad",
+    "Transifex",
     "autosaved",
+    "behaviour",
     "borderless",
     "bspwm",
+    "datasets",
+    "jsonapi",
     "monospace",
     "mycli",
     "nightfly",
     "pdfs",
     "repos",
+    "stateful",
     "tomontheinternet",
     "webm"
-  ]
+  ],
+  "emmet.includeLanguages": {"javascript": "javascriptreact"}
 }
