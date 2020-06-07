@@ -1,5 +1,7 @@
 [user]
 	email = thomaspatricksteven@gmail.com
-	name = tom
+	name = Thomas Steven
 [help]
 	autocorrect = 10
+[pull]
+	ff = only

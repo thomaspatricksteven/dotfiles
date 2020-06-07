@@ -8,7 +8,7 @@ setopt HIST_IGNORE_DUPS
 
 alias vim=nvim
 alias ll="ls -Alh"
-alias ls="lsd"
+alias ls="lsd --group-dirs first"
 alias cat="bat"
 alias notes="vim ~/Dropbox/notes.md"
 alias notes:temp="vim ~/temp/temp"
@@ -24,6 +24,13 @@ alias ui="cd ~/code/humility/applications/ui"
 alias hr="cd ~/code/humility/applications/hr"
 alias payroll="cd ~/code/humility/applications/payroll"
 alias admin="cd ~/code/humility/applications/admin"
+alias evil="cd ~/code/evil-sudo"
+alias dl="cd ~/Downloads"
+
+alias -g ...='../..'
+alias -g ....='../../..'
+alias -g .....='../../../..'
+alias -g ......='../../../../..'
 
 export XDG_CONFIG_HOME="$HOME/.config"
 export TERMINAL="kitty"
@@ -33,14 +40,15 @@ export BROWSER="firefox-developer-edition"
 export XDG_CONFIG_HOME=$HOME/.config
 export XDG_DATA_HOME=$HOME/.local/share
 export PATH=~/.local/bin:$PATH
+export NVIM_COC_LOG_LEVEL=debug
 
 # Vim mode
 bindkey -v
 export KEYTIMEOUT=1
 
+# completion
 autoload -Uz compinit
 compinit
-
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}'
 
 # asdf
@@ -51,7 +59,6 @@ zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 source ~/.zsh/plugins/zsh-z/zsh-z.plugin.zsh
 source ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
-source ~/.config/lf/lfcd.sh
 
 [[ "$(tty)" = "/dev/tty1" ]] && startx;
 

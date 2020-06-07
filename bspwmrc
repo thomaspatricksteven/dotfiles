@@ -1,6 +1,6 @@
 #! /bin/sh
 
-xrandr --output eDP1 --mode 2560x1440
+xrandr --output eDP-1 --mode 2560x1440
 ~/.config/polybar/launch.sh &
 sxhkd &
 flameshot &
@@ -10,10 +10,11 @@ copyq &
 nm-applet &
 dunst &
 udiskie &
+xbanish &
 redshift &
 nitrogen --restore &
 
-bspc monitor -d terminal browser editor slack V VI VII VIII IX X
+bspc monitor -d terminal browser editor slack V VI VII todoist IX X
 
 bspc config border_width         2
 bspc config window_gap          20
@@ -23,10 +24,13 @@ bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 
 bspc rule -a Slack desktop='^4'
+bspc rule -a Todoist desktop='^8'
 bspc rule -a firefoxdeveloperedition desktop='^2'
 bspc rule -a Peek state=floating
 
-sleep 3
-xrandr --output HDMI2 --same-as eDP1
+sleep 1
+xrandr --output HDMI-2 --same-as eDP-1
 sleep 1
 nitrogen --restore &
+sleep 2
+sarg watch &

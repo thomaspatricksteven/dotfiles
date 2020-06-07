@@ -24,7 +24,7 @@ Plug 'junegunn/fzf.vim' | "Fuzzy find. Find in project. Find file by name. Regex
 Plug 'junegunn/goyo.vim' | "Distraction free mode
 Plug 'junegunn/limelight.vim' | "Text highlighting
 Plug 'junegunn/vim-peekaboo' | "Show registers
-Plug 'machakann/vim-highlightedyank'
+Plug 'machakann/vim-highlightedyank' | "Highlights the selection just yanked
 Plug 'mhinz/vim-grepper' | "Grep vim
 Plug 'neoclide/coc.nvim', {'branch': 'release'}| "COC Vim is the backbone of modern Vim. It does all the IDE stuff.
 Plug 'pechorin/any-jump.vim' | " Any jump let's you jump to related places.
@@ -36,6 +36,8 @@ Plug 'tpope/vim-fugitive'| "Git in Vim. Lots to learn, but really good.
 Plug 'tpope/vim-surround'| "Surround text with quotes, brackets, etc.
 Plug 'tpope/vim-vinegar'| "Makes the default vim file tree (netrw) much better
 Plug 'wellle/targets.vim' | "Additional text targets, like `ci,`
+Plug 'alvan/vim-closetag'
+Plug 'honza/vim-snippets'
 call plug#end()
 
 "--------------------------
@@ -121,6 +123,7 @@ map <leader>f :FZF<CR> | "Search files
 map <leader>h :History<CR> | "Search Recent files
 map <leader>g :Grepper<CR> | "Search using grepper
 map <leader><space> :Rg<CR> | "Search in project files
+nnoremap <leader>cd :let @+=expand("%:p:h")<CR>
 
 nmap gs  <plug>(GrepperOperator)
 xmap gs  <plug>(GrepperOperator)
@@ -128,6 +131,50 @@ xmap gs  <plug>(GrepperOperator)
 " Allow netrw to remove non-empty local directories
 let g:netrw_localrmdir='rm -rf'
 let g:netrw_rmdir_cmd='rm -rf'
+
+"--------------------------
+"COC
+"--------------------------
+" filenames like *.xml, *.html, *.xhtml, ...
+" These are the file extensions where this plugin is enabled.
+"
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.jsx,*.js,*.tsx'
+
+" filenames like *.xml, *.xhtml, ...
+" This will make the list of non-closing tags self-closing in the specified files.
+"
+let g:closetag_xhtml_filenames = '*.xhtml,*.jsx,*.js,*.tsx'
+
+" filetypes like xml, html, xhtml, ...
+" These are the file types where this plugin is enabled.
+"
+let g:closetag_filetypes = 'html,xhtml,phtml,jsx,js,tsx'
+
+" filetypes like xml, xhtml, ...
+" This will make the list of non-closing tags self-closing in the specified files.
+"
+let g:closetag_xhtml_filetypes = 'xhtml,jsx,jsx,js,tsx'
+
+" integer value [0|1]
+" This will make the list of non-closing tags case-sensitive (e.g. `<Link>` will be closed while `<link>` won't.)
+"
+let g:closetag_emptyTags_caseSensitive = 1
+
+" dict
+" Disables auto-close if not in a "valid" region (based on filetype)
+"
+let g:closetag_regions = {
+    \ 'typescript.tsx': 'jsxRegion,tsxRegion',
+    \ 'javascript.jsx': 'jsxRegion',
+    \ }
+
+" Shortcut for closing tags, default is '>'
+"
+let g:closetag_shortcut = '>'
+
+" Add > at current position without closing the current tag, default is ''
+"
+let g:closetag_close_shortcut = '<leader>>'
 
 "--------------------------
 "COC
@@ -275,10 +322,12 @@ let g:coc_global_extensions = [
       \ 'coc-pairs',
       \ 'coc-phpls',
       \ 'coc-prettier',
+      \ 'coc-python',
       \ 'coc-snippets',
       \ 'coc-spell-checker',
       \ 'coc-solargraph',
       \ 'coc-tsserver',
+      \ 'coc-vimlsp',
       \ 'coc-yaml',
       \]
 
