@@ -8,6 +8,7 @@ setopt HIST_IGNORE_DUPS
 
 alias vim=nvim
 alias ll="ls -Alh"
+alias cp="cp -iv"
 alias ls="lsd --group-dirs first"
 alias cat="bat"
 alias notes="vim ~/Dropbox/notes.md"
@@ -41,6 +42,11 @@ export XDG_CONFIG_HOME=$HOME/.config
 export XDG_DATA_HOME=$HOME/.local/share
 export PATH=~/.local/bin:$PATH
 export NVIM_COC_LOG_LEVEL=debug
+
+export GTK_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+export QT_IM_MODULE=ibus
+# export GLFW_IM_MODULE=ibus
 
 # Vim mode
 bindkey -v
@@ -79,5 +85,6 @@ printf "\n$(shuf -n 1 ~/code/quotes/quotes)"
 
 # logo
 printf "\n\n"
-logo
+#logo
 #big-logo
+im2a -p -W 35 tom_logo.png

@@ -13,6 +13,7 @@ udiskie &
 xbanish &
 redshift &
 nitrogen --restore &
+ibus-daemon -drx --panel /usr/lib/ibus/ibus-ui-gtk3 &
 
 bspc monitor -d terminal browser editor slack V VI VII todoist IX X
 
@@ -23,7 +24,7 @@ bspc config split_ratio          0.52
 bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 
-bspc rule -a Slack desktop='^4'
+bspc rule -a Slack desktop='^4' follow=off
 bspc rule -a Todoist desktop='^8'
 bspc rule -a firefoxdeveloperedition desktop='^2'
 bspc rule -a Peek state=floating
