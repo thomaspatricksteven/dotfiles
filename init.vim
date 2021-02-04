@@ -14,20 +14,17 @@
 "You MUST install these using :PlugInstall
 
 call plug#begin('~/nvim/plugged')
-Plug 'HerringtonDarkholme/yats.vim' | "TS Syntax
-Plug 'airblade/vim-gitgutter' | "git info in editor
-Plug 'bluz71/vim-nightfly-guicolors' | "color scheme
-Plug 'chr4/nginx.vim' | "nginx colors
+Plug 'mhinz/vim-signify' | "git info in editor
+Plug 'gkapfham/vim-vitamin-onec'
+Plug 'honza/vim-snippets'
 Plug 'itchyny/lightline.vim' | "Status bar
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } | "Installs FZF on the system.
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim' | "Fuzzy find. Find in project. Find file by name. Regex search. Much more.
 Plug 'junegunn/goyo.vim' | "Distraction free mode
 Plug 'junegunn/limelight.vim' | "Text highlighting
-Plug 'junegunn/vim-peekaboo' | "Show registers
+Plug 'jwalton512/vim-blade'
 Plug 'machakann/vim-highlightedyank' | "Highlights the selection just yanked
-Plug 'mhinz/vim-grepper' | "Grep vim
 Plug 'neoclide/coc.nvim', {'branch': 'release'}| "COC Vim is the backbone of modern Vim. It does all the IDE stuff.
-Plug 'pechorin/any-jump.vim' | " Any jump let's you jump to related places.
 Plug 'rhysd/git-messenger.vim' | "View git commit information
 Plug 'sheerun/vim-polyglot' | "A language pack
 Plug 'tpope/vim-abolish' | "Text manipulation, including conversion to snake_case and camelCase.
@@ -35,9 +32,11 @@ Plug 'tpope/vim-commentary' | "Add comments to code.
 Plug 'tpope/vim-fugitive'| "Git in Vim. Lots to learn, but really good.
 Plug 'tpope/vim-surround'| "Surround text with quotes, brackets, etc.
 Plug 'tpope/vim-vinegar'| "Makes the default vim file tree (netrw) much better
+Plug 'unblevable/quick-scope'| "Help for f and t movements
 Plug 'wellle/targets.vim' | "Additional text targets, like `ci,`
-Plug 'alvan/vim-closetag'
-Plug 'honza/vim-snippets'
+Plug 'rodrigore/coc-tailwind-intellisense', {'do': 'npm install'}
+Plug 'jparise/vim-graphql'
+Plug 'bluz71/vim-nightfly-guicolors'
 call plug#end()
 
 "--------------------------
@@ -57,9 +56,10 @@ set noswapfile | "Don't use swap files
 set noshowmode | "Don't show mode, plugin does it already
 set noemoji | "Fixes emoji double width
 set undofile | "Allows undo after closing and reopening a file
-set spell | "Spell check
+"set spell | "Spell check
 set wildmode=longest,list,full | "Make tab completion work like bash
 set inccommand=nosplit
+set listchars=trail:- " Show trailing spaces
 
 "Resize buffers when window changes sizes
 autocmd VimResized * execute "normal! \<c-w>="
@@ -69,7 +69,7 @@ autocmd VimResized * execute "normal! \<c-w>="
 autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif
 autocmd FileChangedShellPost * echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
 
-autocmd BufWritePre * %s/\s\+$//e
+autocmd BufWritePre * %s/\s\+$//e " Remove trailing spaces
 
 "Pay attention to file types and indentation
 filetype plugin indent on
@@ -102,10 +102,16 @@ set shiftwidth=2 | "Use two spaces
 "Color settings
 "--------------------------
 set termguicolors | "Use the right colors
+highlight clear SignColumn
+
+"colorscheme vitaminonec (black one)
 colorscheme nightfly
-let g:lightline = { 'colorscheme': 'nightfly' }
-let g:nightflyCursorColor = 1
+let g:lightline = {
+      \ 'colorscheme': 'nightfly',
+\ }
 let g:nightflyUnderlineMatchParen = 1
+let g:nightflyCursorColor = 1
+
 
 hi Comment cterm=italic
 set background=dark
@@ -119,62 +125,22 @@ set background=dark
 "you should learn.
 let mapleader = "\<space>"
 nmap <leader>/ :nohlsearch<cr> | "Clear search highlight.
-map <leader>f :FZF<CR> | "Search files
+map <leader>f :Files<CR> | "Search files
+map <leader>l :BLines<CR> | "Search lines in current buffer
 map <leader>h :History<CR> | "Search Recent files
-map <leader>g :Grepper<CR> | "Search using grepper
+map <leader>g :GFiles?<CR> | "Search git modified files
+map <leader>o :OR<CR> | "Organize imports
+map <leader>c <Plug>(coc-action-fixAll) | "Fix all
 map <leader><space> :Rg<CR> | "Search in project files
-nnoremap <leader>cd :let @+=expand("%:p:h")<CR>
-
-nmap gs  <plug>(GrepperOperator)
-xmap gs  <plug>(GrepperOperator)
-
-" Allow netrw to remove non-empty local directories
-let g:netrw_localrmdir='rm -rf'
-let g:netrw_rmdir_cmd='rm -rf'
+vnoremap <leader>p "_dP | " Paste without losing current
+" inoremap <c-c> <NOP>
 
 "--------------------------
-"COC
+"Misc
 "--------------------------
-" filenames like *.xml, *.html, *.xhtml, ...
-" These are the file extensions where this plugin is enabled.
-"
-let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.jsx,*.js,*.tsx'
-
-" filenames like *.xml, *.xhtml, ...
-" This will make the list of non-closing tags self-closing in the specified files.
-"
-let g:closetag_xhtml_filenames = '*.xhtml,*.jsx,*.js,*.tsx'
-
-" filetypes like xml, html, xhtml, ...
-" These are the file types where this plugin is enabled.
-"
-let g:closetag_filetypes = 'html,xhtml,phtml,jsx,js,tsx'
-
-" filetypes like xml, xhtml, ...
-" This will make the list of non-closing tags self-closing in the specified files.
-"
-let g:closetag_xhtml_filetypes = 'xhtml,jsx,jsx,js,tsx'
-
-" integer value [0|1]
-" This will make the list of non-closing tags case-sensitive (e.g. `<Link>` will be closed while `<link>` won't.)
-"
-let g:closetag_emptyTags_caseSensitive = 1
-
-" dict
-" Disables auto-close if not in a "valid" region (based on filetype)
-"
-let g:closetag_regions = {
-    \ 'typescript.tsx': 'jsxRegion,tsxRegion',
-    \ 'javascript.jsx': 'jsxRegion',
-    \ }
-
-" Shortcut for closing tags, default is '>'
-"
-let g:closetag_shortcut = '>'
-
-" Add > at current position without closing the current tag, default is ''
-"
-let g:closetag_close_shortcut = '<leader>>'
+"Everything else
+let g:hardtime_default_on = 1
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
 "--------------------------
 "COC
@@ -291,24 +257,6 @@ command! -nargs=0 Prettier :CocCommand prettier.formatFile
 " Add status line support, for integration with other plugin, checkout `:h coc-status`
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
-" Using CocList
-" Show all diagnostics
-"nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
-" Manage extensions
-"nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
-" Show commands
-"nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
-" Find symbol of current document
-"nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
-" Search workspace symbols
-"nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
-" Do default action for next item.
-"nnoremap <silent> <space>j  :<C-u>CocNext<CR>
-" Do default action for previous item.
-"nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
-" Resume latest coc list
-"nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
-
 " coc extensions
 let g:coc_global_extensions = [
       \ 'coc-angular',
@@ -316,24 +264,21 @@ let g:coc_global_extensions = [
       \ 'coc-docker',
       \ 'coc-diagnostic',
       \ 'coc-emmet',
-      \ 'coc-highlight',
+      \ 'coc-eslint',
+      \ 'coc-go',
       \ 'coc-html',
       \ 'coc-json',
-      \ 'coc-marketplace',
-      \ 'coc-pairs',
+      \ 'coc-markdownlint',
       \ 'coc-phpls',
       \ 'coc-prettier',
       \ 'coc-python',
-      \ 'coc-snippets',
       \ 'coc-spell-checker',
+      \ 'coc-sh',
+      \ 'coc-snippets',
       \ 'coc-styled-components',
       \ 'coc-solargraph',
-      \ 'coc-sh',
-      \ 'coc-sql',
       \ 'coc-tsserver',
-      \ 'coc-vimlsp',
       \ 'coc-yaml',
-      \ 'coc-webpack',
-      \ 'coc-yank',
+      \ 'coc-yank'
       \]
 

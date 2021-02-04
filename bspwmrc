@@ -5,7 +5,6 @@ xrandr --output eDP-1 --mode 2560x1440
 sxhkd &
 flameshot &
 dropbox &
-picom &
 copyq &
 nm-applet &
 dunst &
@@ -15,23 +14,29 @@ redshift &
 nitrogen --restore &
 ibus-daemon -drx --panel /usr/lib/ibus/ibus-ui-gtk3 &
 
-bspc monitor -d terminal browser editor slack V VI VII todoist IX X
+bspc monitor -d terminal browser editor slack V VI VII VII IX X
 
-bspc config border_width         2
-bspc config window_gap          20
+bspc config border_width 2
+bspc config window_gap 20
 
-bspc config split_ratio          0.52
-bspc config borderless_monocle   true
-bspc config gapless_monocle      true
+bspc config split_ratio 0.52
+bspc config borderless_monocle true
+bspc config gapless_monocle true
+bspc config ignore_ewmh_focus true
 
 bspc rule -a Slack desktop='^4' follow=off
-bspc rule -a Todoist desktop='^8'
-bspc rule -a firefoxdeveloperedition desktop='^2'
+bspc rule -a Google-chrome desktop='^2'
+bspc rule -a Brave-browser desktop='^2'
 bspc rule -a Peek state=floating
+bspc rule -a guvcview state=floating layer=above
+bspc rule -a sticky-note state=floating sticky=on border=off
+
+setxkbmap -model 'pc104curl-z' -layout 'us(cmk_ed_us)' -option 'caps:escape,misc:cmk_curl_dh'
 
 sleep 1
 xrandr --output HDMI-2 --same-as eDP-1
 sleep 1
-nitrogen --restore &
-sleep 2
 sarg watch &
+nitrogen --restore &
+picom --experimental-backends &
+sleep 1

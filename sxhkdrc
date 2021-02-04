@@ -8,15 +8,19 @@ super + Return
 
 # program launcher
 super + space
-	rofi -show run
+  dmenu_run -h 40 -fn 'Hurmit Nerd Font Mono:bold:pixelsize=20' -sb '#5f8700' -dim 0.1 -i -q
 
-# Flameshot 
+# Flameshot
 super + i
 	flameshot gui
 
-# SimpleScreenRecorder 
-super + v
-  simplescreenrecorder	
+# Emoji picker
+super + e
+ rofi -font "DankMono Nerd Font Mono 20" -show emoji -modi emoji
+
+# SimpleScreenRecorder
+super + Print
+ polybar-msg cmd toggle
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -128,6 +132,7 @@ super + alt + shift + {h,j,k,l}
 super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
 
+
 #
 # multimedia keys
 #
@@ -146,8 +151,8 @@ XF86AudioLowerVolume
 
 # raise brightness
 XF86MonBrightnessUp
-  light -A 5
+  light -A 10
 
 # lower brightness
 XF86MonBrightnessDown
-  light -U 5
+  light -U 10
