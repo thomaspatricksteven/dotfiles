@@ -1,9 +1,7 @@
 "--------------------------
-"Tom's Vim RC
+"Tom's (neo)Vim RC
 "--------------------------
 "
-"These are my NeoVim settings, but they should work with standard vim, too
-
 "--------------------------
 "Plugins
 "--------------------------
@@ -30,9 +28,9 @@ Plug 'sheerun/vim-polyglot' | "A language pack
 Plug 'tpope/vim-abolish' | "Text manipulation, including conversion to snake_case and camelCase.
 Plug 'tpope/vim-commentary' | "Add comments to code.
 Plug 'tpope/vim-fugitive'| "Git in Vim. Lots to learn, but really good.
-Plug 'tpope/vim-surround'| "Surround text with quotes, brackets, etc.
+" Plug 'tpope/vim-surround'| "Surround text with quotes, brackets, etc.
+Plug 'machakann/vim-sandwich'| "Surround text with quotes, brackets, etc.
 Plug 'tpope/vim-vinegar'| "Makes the default vim file tree (netrw) much better
-Plug 'unblevable/quick-scope'| "Help for f and t movements
 Plug 'wellle/targets.vim' | "Additional text targets, like `ci,`
 Plug 'rodrigore/coc-tailwind-intellisense', {'do': 'npm install'}
 Plug 'jparise/vim-graphql'
@@ -56,7 +54,6 @@ set noswapfile | "Don't use swap files
 set noshowmode | "Don't show mode, plugin does it already
 set noemoji | "Fixes emoji double width
 set undofile | "Allows undo after closing and reopening a file
-"set spell | "Spell check
 set wildmode=longest,list,full | "Make tab completion work like bash
 set inccommand=nosplit
 set listchars=trail:- " Show trailing spaces
@@ -104,7 +101,6 @@ set shiftwidth=2 | "Use two spaces
 set termguicolors | "Use the right colors
 highlight clear SignColumn
 
-"colorscheme vitaminonec (black one)
 colorscheme nightfly
 let g:lightline = {
       \ 'colorscheme': 'nightfly',
@@ -134,13 +130,6 @@ map <leader>c <Plug>(coc-action-fixAll) | "Fix all
 map <leader><space> :Rg<CR> | "Search in project files
 vnoremap <leader>p "_dP | " Paste without losing current
 " inoremap <c-c> <NOP>
-
-"--------------------------
-"Misc
-"--------------------------
-"Everything else
-let g:hardtime_default_on = 1
-let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
 "--------------------------
 "COC

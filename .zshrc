@@ -6,6 +6,8 @@ source $HOME/.asdf/asdf.sh
 source ~/.fzf.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.zsh/plugins/gitit/gitit.zsh
+source ~/.zsh/plugins/vmi-counter
 
 fpath=(${ASDF_DIR}/completions $fpath)
 
