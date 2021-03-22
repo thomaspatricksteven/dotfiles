@@ -107,7 +107,9 @@ let g:lightline = {
 \ }
 let g:nightflyUnderlineMatchParen = 1
 let g:nightflyCursorColor = 1
+let g:nightflyTransparent = 1
 
+hi Normal guibg=NONE ctermbg=NONE
 
 hi Comment cterm=italic
 set background=dark

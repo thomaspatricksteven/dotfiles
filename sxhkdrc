@@ -4,7 +4,7 @@
 
 # terminal emulator
 super + Return
-	kitty
+	alacritty
 
 # program launcher
 super + space
@@ -23,13 +23,13 @@ super + Print
  polybar-msg cmd toggle
 
 # Sound board
-# shift + ctrl + {n,e,i,o}
-#   { sound=yeah;         text='yeah yeah yeah!'; \
-#   , sound=diesel;       text='VIM diesel';   \
-#   , sound=supereasy;    text='super easy! barely an inconvenience'; \
-#   , sound=garbage;      text='Proprietary garbage!';  \
-#   } \
-#  notify-send $text; sb $sound
+shift + ctrl + alt + {n,e,i,o}
+  { sound=yeah;         text='yeah yeah yeah!'; \
+  , sound=diesel;       text='VIM diesel';   \
+  , sound=supereasy;    text='super easy! barely an inconvenience'; \
+  , sound=garbage;      text='Proprietary garbage!';  \
+  } \
+ notify-send $text; sb $sound
 
 # make sxhkd reload its configuration files:
 super + Escape
