@@ -28,6 +28,8 @@ return require('packer').startup(function(use)
     }
   }
 
+  use 'simrat39/symbols-outline.nvim'
+
   use 'jwalton512/vim-blade'
   use 'vim-airline/vim-airline'
   use 'machakann/vim-highlightedyank'
@@ -35,6 +37,7 @@ return require('packer').startup(function(use)
   use 'arcticicestudio/nord-vim'
   use 'rhysd/git-messenger.vim'
   use 'sheerun/vim-polyglot'
+  use 'junegunn/goyo.vim'
   use 'tpope/vim-abolish'
   use 'tpope/vim-commentary'
   use 'tpope/vim-fugitive'

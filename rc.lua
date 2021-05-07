@@ -164,7 +164,7 @@ screen.connect_signal("property::geometry", set_wallpaper)
 
 awful.screen.connect_for_each_screen(function(s)
     -- Wallpaper
-    set_wallpaper(s)
+    -- set_wallpaper(s)
 
     -- Each screen has its own tag table.
     awful.tag({ "terminal", "browser", "code", "chat", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
@@ -284,6 +284,10 @@ globalkeys = gears.table.join(
     awful.key({ modkey, "Control"}, "b",   function () awful.util.spawn("webcam bumper") end),
     awful.key({ modkey, "Control"}, "=",   function () awful.util.spawn("webcam zoom_in") end),
     awful.key({ modkey, "Control"}, "-",   function () awful.util.spawn("webcam zoom_out") end),
+    -- Soundboard
+    awful.key({ modkey, "Control"}, "n",   function () awful.util.spawn("sound-board.bash never-forget") end),
+    awful.key({ modkey, "Control"}, "n",   function () awful.util.spawn("notify-send 'NEVER FORGET'") end),
+
     -- Other
     awful.key({modkey, }, "i", function () awful.util.spawn("flameshot gui") end),
     awful.key({ modkey }, "b",

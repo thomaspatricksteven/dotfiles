@@ -15,6 +15,7 @@ xbanish &
 picom &
 emote &
 nm-applet &
+nitrogen --restore &
 
 xrandr --output HDMI-2 --same-as eDP-1
 
