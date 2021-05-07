@@ -1,4 +1,4 @@
-source ~/.config/asdf/asdf.fish
+source ~/.asdf/asdf.fish
 
 alias ls="exa --group-directories-first --icons --color-scale"
 alias ll="ls -ali --git"
