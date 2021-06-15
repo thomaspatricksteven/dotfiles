@@ -28,13 +28,17 @@ return require('packer').startup(function(use)
     }
   }
 
+  use {
+    'hoob3rt/lualine.nvim',
+    requires = {'kyazdani42/nvim-web-devicons', opt = true}
+  }
+
   use 'simrat39/symbols-outline.nvim'
 
   use 'jwalton512/vim-blade'
-  use 'vim-airline/vim-airline'
   use 'machakann/vim-highlightedyank'
   use 'honza/vim-snippets'
-  use 'arcticicestudio/nord-vim'
+  use 'folke/tokyonight.nvim'
   use 'rhysd/git-messenger.vim'
   use 'sheerun/vim-polyglot'
   use 'junegunn/goyo.vim'
