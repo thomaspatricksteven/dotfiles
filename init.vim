@@ -5,6 +5,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}| "COC Vim is the backbone of mod
 Plug 'rodrigore/coc-tailwind-intellisense', {'do': 'npm install'}
 call plug#end()
 
+
 "--------------------------
 "Foundational settings
 "--------------------------
@@ -49,10 +50,6 @@ set shiftwidth=2 | "Use two spaces
 "--------------------------
 set termguicolors | "Use the right colors
 highlight clear SignColumn
-
-let g:nord_italic = 1
-let g:nord_italic_comments = 1
-let g:nord_underline = 1
 
 hi Normal guibg=NONE ctermbg=NONE
 hi Comment cterm=italic
@@ -181,7 +178,7 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 
 " Add status line support, for integration with other plugin, checkout `:h coc-status`
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+" set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " coc extensions
 let g:coc_global_extensions = [

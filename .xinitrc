@@ -14,6 +14,7 @@ flameshot &
 xbanish &
 picom &
 emote &
+dropbox &
 nm-applet &
 nitrogen --restore &
 

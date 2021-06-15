@@ -7,5 +7,6 @@ require('variables')
 require('tree-sitter')
 require('telescope-plugin')
 require('gitsigns-plugin')
+require('lualine-plugin')
 require('symbol-outline-plugin')
 
