@@ -8,7 +8,6 @@ xinput set-prop $(xinput | grep TrackPoint | grep -oP "id=\K..") "libinput Accel
 
 setxkbmap -model 'pc104angle-z' -layout 'us(cmk_ed_us)' -option 'caps:escape,misc:cmk_curl_dh'
 
-
 xrandr --output eDP-1 --mode 2560x1440
 
 copyq &
