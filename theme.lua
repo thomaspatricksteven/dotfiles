@@ -11,7 +11,8 @@ local themes_path = gfs.get_themes_dir()
 
 local theme = {}
 
-theme.font          = "monospace 18"
+-- theme.font          = "monospace 18"
+theme.font          = "monospace 13"
 
 -- {{{ Colors
 theme.fg_normal  = "#C0CAF5"
