@@ -7,6 +7,7 @@ source /usr/share/fzf/completion.bash
 
 alias ls="exa --group-directories-first --icons --color-scale"
 alias ll="ls -ali --git"
+alias termlogo="pixcat thumbnail --size 256 --align left $HOME/Dropbox/tom_on_the_internet/term_logo.png"
 
 alias mv="mv -iv"
 alias cp="cp -riv"
@@ -26,6 +27,10 @@ alias hr="cd ~/code/humility/applications/hr"
 alias payroll="cd ~/code/humility/applications/payroll"
 alias admin="cd ~/code/humility/applications/admin"
 
+parse_git_branch() {
+     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
+
 export TERMINAL=alacritty
 export EDITOR=nvim
 export VISUAL=nvim
@@ -39,4 +44,6 @@ export PATH="$HOME/.local/bin:$PATH"
 export PATH="$GOBIN:$PATH"
 export PATH="$HOME/.asdf/installs/nodejs/15.13.0/.npm:$PATH"
 export HISTFILESIZE=-1
+export PS1="\u@\h \[\e[32m\]\w \[\e[91m\]\$(parse_git_branch)\[\e[00m\]$ "
 
+termlogo
