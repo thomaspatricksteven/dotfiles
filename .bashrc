@@ -5,22 +5,30 @@ source $HOME/.asdf/completions/asdf.bash
 source /usr/share/fzf/key-bindings.bash
 source /usr/share/fzf/completion.bash
 
-alias ls="exa --group-directories-first --icons --color-scale"
-alias ll="ls -ali --git"
-alias termlogo="pixcat thumbnail --size 256 --align left $HOME/Dropbox/tom_on_the_internet/term_logo.png"
+# alternatives
+alias ls='exa --group-directories-first --icons --color-scale'
+alias vim=nvim
+alias cat=bat
 
+# alias print_pwd='echo $PWD'
+
+# interactive improvements
 alias mv="mv -iv"
 alias cp="cp -riv"
 alias mkdir='mkdir -vp'
 alias rm='rm -v'
+alias ll="ls -ali --git"
 
-alias vim=nvim
-alias cat="bat"
-alias notes="vim ~/Dropbox/notes.md"
+# commands
+alias termlogo='pixcat thumbnail --size 256 --align left $HOME/Dropbox/tom_on_the_internet/term_logo.png'
+alias notes='vim ~/Dropbox/notes.md'
+alias wd=word-define
+
+# renames
 alias dc="docker-compose"
 alias open="xdg-open"
-alias wd="word-define"
 
+# work
 alias humi="cd ~/code/humility"
 alias ui="cd ~/code/humility/applications/ui"
 alias hr="cd ~/code/humility/applications/hr"
