@@ -52,6 +52,6 @@ export PATH="$HOME/.local/bin:$PATH"
 export PATH="$GOBIN:$PATH"
 export PATH="$HOME/.asdf/installs/nodejs/15.13.0/.npm:$PATH"
 export HISTFILESIZE=-1
-export PS1="\u@\h \[\e[32m\]\w \[\e[91m\]\$(parse_git_branch)\[\e[00m\]$ "
+export PS1="\u@\h \[\e[32m\]\w \[\e[94m\]\$(parse_git_branch)\[\e[00m\]$ "
 
 termlogo
