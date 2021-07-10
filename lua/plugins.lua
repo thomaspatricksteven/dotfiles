@@ -9,7 +9,10 @@ return require('packer').startup(function(use)
 
   -- LSP
   use 'neovim/nvim-lspconfig'
-  --use 'hrsh7th/nvim-compe'
+  use 'hrsh7th/nvim-compe'
+
+  use  'hrsh7th/vim-vsnip'
+  use  'rafamadriz/friendly-snippets'
 
   use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"}
 
