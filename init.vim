@@ -51,6 +51,9 @@ set shiftwidth=2 | "Use two spaces
 set termguicolors | "Use the right colors
 highlight clear SignColumn
 
+" always show signcolumns
+set signcolumn=yes
+
 hi Normal guibg=NONE ctermbg=NONE
 hi Comment cterm=italic
 
@@ -86,8 +89,6 @@ set cmdheight=2
 " You will have bad experience for diagnostic messages when it's default 4000.
 set updatetime=300
 
-" always show signcolumns
-set signcolumn=yes
 
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
