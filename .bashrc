@@ -18,7 +18,7 @@ alias rm='rm -v'
 alias ll="ls -ali --git"
 
 # commands
-alias termlogo='pixcat thumbnail --size 256 --align left $HOME/Dropbox/tom_on_the_internet/term_logo.png'
+alias termlogo='pixcat thumbnail --size 256 --align left $HOME/Dropbox/tom_on_the_internet/term_logo_transparent.png'
 alias notes='vim ~/Dropbox/notes.md'
 alias wd=word-define
 
