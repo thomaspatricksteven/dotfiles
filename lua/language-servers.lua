@@ -204,6 +204,7 @@ require"format".setup {
     },
     css = {{cmd = {"prettier -w"}}},
     html = {{cmd = {"prettier -w"}}},
+    php = {{cmd = {"prettier -w"}}},
     lua = {{cmd = {"lua-format -i"}}},
     javascript = {{cmd = {"prettier -w", "./node_modules/.bin/eslint --fix"}}},
     typescript = {{cmd = {"prettier -w", "./node_modules/.bin/eslint --fix"}}},
