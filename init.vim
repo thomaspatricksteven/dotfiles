@@ -66,7 +66,6 @@ map <leader>f <cmd>Telescope find_files<cr> | "Search files
 map <leader><space> <cmd>Telescope live_grep<cr>
 map <leader>h <cmd>Telescope oldfiles<cr> | "Search Recent files
 
-" let g:shfmt_opt="-ci"
 
 augroup Format
     autocmd!
