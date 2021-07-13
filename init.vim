@@ -1,8 +1,15 @@
 lua require 'init'
 
+"Pay attention to file types and indentation
+filetype plugin indent on
+
 set diffopt=vertical | "Git diffs open vertically
 set wildmode=longest,list,full | "Make tab completion work like bash
 set listchars=trail:- " Show trailing spaces
+
+"--------------------------
+"Auto Commands
+"--------------------------
 
 "Resize buffers when window changes sizes
 autocmd VimResized * execute "normal! \<c-w>="
@@ -12,8 +19,11 @@ autocmd VimResized * execute "normal! \<c-w>="
 autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif
 autocmd FileChangedShellPost * echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
 
-"Pay attention to file types and indentation
-filetype plugin indent on
+augroup Format
+    autocmd!
+    autocmd BufWritePost * FormatWrite
+augroup END
+
 
 "--------------------------
 "Search settings
@@ -43,16 +53,3 @@ set signcolumn=yes
 hi Normal guibg=NONE ctermbg=NONE
 hi Comment cterm=italic
 
-"--------------------------
-"Mappings
-"--------------------------
-
-map <leader>f <cmd>Telescope find_files<cr> | "Search files
-map <leader><space> <cmd>Telescope live_grep<cr>
-map <leader>h <cmd>Telescope oldfiles<cr> | "Search Recent files
-
-
-augroup Format
-    autocmd!
-    autocmd BufWritePost * FormatWrite
-augroup END
