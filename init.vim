@@ -1,17 +1,5 @@
 lua require 'init'
 
-" call plug#begin('~/nvim/plugged')
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}| "COC Vim is the backbone of modern Vim. It does all the IDE stuff.
-" Plug 'rodrigore/coc-tailwind-intellisense', {'do': 'npm install'}
-" call plug#end()
-
-
-"--------------------------
-"Foundational settings
-"--------------------------
-"These settings are sane defaults
-"They make Vim usable
-
 set diffopt=vertical | "Git diffs open vertically
 set wildmode=longest,list,full | "Make tab completion work like bash
 set listchars=trail:- " Show trailing spaces
@@ -23,8 +11,6 @@ autocmd VimResized * execute "normal! \<c-w>="
 " This is the default behaviour of most other editors
 autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif
 autocmd FileChangedShellPost * echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
-
-autocmd BufWritePre * %s/\s\+$//e " Remove trailing spaces
 
 "Pay attention to file types and indentation
 filetype plugin indent on
@@ -61,7 +47,6 @@ hi Comment cterm=italic
 "Mappings
 "--------------------------
 
-"Set leader to space.
 map <leader>f <cmd>Telescope find_files<cr> | "Search files
 map <leader><space> <cmd>Telescope live_grep<cr>
 map <leader>h <cmd>Telescope oldfiles<cr> | "Search Recent files

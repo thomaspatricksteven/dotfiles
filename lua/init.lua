@@ -1,7 +1,6 @@
 require('plugins')
 require('keymappings')
 require('settings')
-require('variables')
 require('tree-sitter')
 require('telescope-plugin')
 require('gitsigns-plugin')

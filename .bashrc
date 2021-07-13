@@ -5,6 +5,7 @@ source $HOME/.asdf/completions/asdf.bash
 source /usr/share/fzf/key-bindings.bash
 source /usr/share/fzf/completion.bash
 
+
 # alternatives
 alias ls='exa --group-directories-first --icons --color-scale'
 alias vim=nvim
