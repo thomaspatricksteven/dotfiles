@@ -5,14 +5,18 @@ local nvim_lsp = require('lspconfig')
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
 local servers = {
-    "gopls", "angularls", "bashls", "tsserver", "intelephense", "cssls", "html",
-    "dockerls"
+    "gopls", "angularls", "bashls", "tsserver", "cssls", "html", "dockerls"
 }
 
 for _, lsp in ipairs(servers) do
     if (not nvim_lsp[lsp]) then print("mising lsp called " .. lsp) end
     nvim_lsp[lsp].setup {flags = {debounce_text_changes = 150}}
 end
+
+nvim_lsp.intelephense.setup {
+    flags = {debounce_text_changes = 150},
+    init_options = {licenceKey = "00G0KD8UUF391H9"}
+}
 
 require'compe'.setup {
     enabled = true,
@@ -86,8 +90,6 @@ nvim_lsp.tsserver.setup {
         vim.api.nvim_buf_set_keymap(bufnr, "n", "gs", ":TSLspOrganize<CR>",
                                     {silent = true})
         vim.api.nvim_buf_set_keymap(bufnr, "n", "qq", ":TSLspFixCurrent<CR>",
-                                    {silent = true})
-        vim.api.nvim_buf_set_keymap(bufnr, "n", "gr", ":TSLspRenameFile<CR>",
                                     {silent = true})
         vim.api.nvim_buf_set_keymap(bufnr, "n", "gi", ":TSLspImportAll<CR>",
                                     {silent = true})
