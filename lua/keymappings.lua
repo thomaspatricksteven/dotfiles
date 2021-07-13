@@ -116,3 +116,5 @@ vim.api.nvim_set_keymap('n', ']d',
                         '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
 vim.api.nvim_set_keymap('n', '<space>q',
                         '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
+
+vim.api.nvim_set_keymap('n', '<space>s', '<cmd>SymbolsOutline<CR>', opts)
