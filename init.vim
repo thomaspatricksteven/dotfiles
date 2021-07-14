@@ -24,6 +24,7 @@ augroup Format
     autocmd BufWritePost * FormatWrite
 augroup END
 
+autocmd BufReadPost,FileReadPost lua require "lsp_signature".on_attach()
 
 "--------------------------
 "Search settings

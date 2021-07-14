@@ -62,6 +62,8 @@ return require('packer').startup(function(use)
     use 'kamykn/spelunker.vim'
     use 'kamykn/popup-menu.nvim'
 
+    use "ray-x/lsp_signature.nvim"
+
     use 'jwalton512/vim-blade'
     use 'machakann/vim-highlightedyank'
     use 'honza/vim-snippets'
