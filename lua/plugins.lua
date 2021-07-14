@@ -59,6 +59,9 @@ return require('packer').startup(function(use)
     use 'kyazdani42/nvim-web-devicons'
     use 'kyazdani42/nvim-tree.lua'
 
+    use 'kamykn/spelunker.vim'
+    use 'kamykn/popup-menu.nvim'
+
     use 'jwalton512/vim-blade'
     use 'machakann/vim-highlightedyank'
     use 'honza/vim-snippets'

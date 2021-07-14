@@ -546,4 +546,4 @@ client.connect_signal("request::titlebars", function(c)
     }
 end)
 
-beautiful.useless_gap = 10
+beautiful.useless_gap = 16
