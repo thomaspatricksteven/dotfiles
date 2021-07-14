@@ -17,7 +17,8 @@ export GOBIN="$GOPATH/bin"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$GOBIN:$PATH"
 export PATH="$HOME/.asdf/installs/nodejs/15.13.0/.npm:$PATH"
-export HISTFILESIZE=-1
+export HISTFILESIZE=
+export HISTSIZE=
 export PS1="\u@\h \[\e[32m\]\w \[\e[94m\]\$(parse_git_branch)\[\e[00m\]$ "
 
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
