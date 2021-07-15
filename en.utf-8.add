@@ -45,3 +45,9 @@ lspconfig
 lspinstall
 intelephense
 folke
+pgxpool
+golangcilsp
+golangci
+langserver
+configs
+gofumpt

@@ -9,7 +9,6 @@ local servers = {
 }
 
 for _, lsp in ipairs(servers) do
-    if (not nvim_lsp[lsp]) then print("mising lsp called " .. lsp) end
     nvim_lsp[lsp].setup {flags = {debounce_text_changes = 150}}
 end
 
@@ -103,6 +102,7 @@ require"format".setup {
     css = {{cmd = {"prettier -w"}}},
     html = {{cmd = {"prettier -w"}}},
     php = {{cmd = {"prettier -w"}}},
+    go = {{cmd = {"gofumpt -w"}}},
     lua = {{cmd = {"lua-format -i"}}},
     javascript = {{cmd = {"prettier -w", "./node_modules/.bin/eslint --fix"}}},
     typescript = {{cmd = {"prettier -w", "./node_modules/.bin/eslint --fix"}}},
@@ -114,3 +114,22 @@ require"format".setup {
     },
     shellscript = {cmd = {"shfmt -ci"}}
 }
+
+local lspconfig = require 'lspconfig'
+local configs = require 'lspconfig/configs'
+
+if not lspconfig.golangcilsp then
+    configs.golangcilsp = {
+        default_config = {
+            cmd = {'golangci-lint-langserver'},
+            root_dir = lspconfig.util.root_pattern('.git', 'go.mod'),
+            init_options = {
+                command = {
+                    "golangci-lint", "run", "--enable-all", "--disable", "lll",
+                    "--out-format", "json"
+                }
+            }
+        }
+    }
+end
+lspconfig.golangcilsp.setup {filetypes = {'go'}}
