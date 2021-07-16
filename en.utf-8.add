@@ -51,3 +51,5 @@ golangci
 langserver
 configs
 gofumpt
+permissibles
+nullable

@@ -10,6 +10,7 @@ source /usr/share/fzf/completion.bash
 alias ls='exa --group-directories-first --icons --color-scale'
 alias vim=nvim
 alias cat=bat
+alias tree='tree -C -a'
 
 # interactive improvements
 alias mv="mv -iv"
