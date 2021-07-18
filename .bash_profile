@@ -4,6 +4,18 @@ parse_git_branch() {
      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
 
+lvl() (
+  unset IFS
+  pid=$$ n=0
+  until
+    set -- $(ps -o ppid= -o sid= -p "$pid")
+    [ "$pid" -eq "$2" ]
+  do
+    n=$((n + 1)) pid=$1
+  done
+  echo "$n"
+)
+
 export -f parse_git_branch
 export TERMINAL=alacritty
 export EDITOR=nvim

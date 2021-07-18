@@ -11,15 +11,20 @@ alias vim=nvim
 alias cat=bat
 alias tree='tree -C -a'
 
-# alias aaa='echo $PWD'
-# alias bbb="echo $PWD"
-
 # interactive improvements
 alias mv="mv -iv"
 alias cp="cp -riv"
 alias mkdir='mkdir -vp'
 alias rm='rm -v'
 alias ll="ls -ali --git"
+
+# my alias
+# alias cpwd="echo 📍 $PWD"
+
+# my function
+# cpwd() {
+# 	echo 📍 "$PWD"
+# }
 
 # commands
 alias termlogo='pixcat thumbnail --size 256 --align left $HOME/Dropbox/tom_on_the_internet/term_logo_transparent.png'
