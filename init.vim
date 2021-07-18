@@ -7,6 +7,8 @@ set diffopt=vertical | "Git diffs open vertically
 set wildmode=longest,list,full | "Make tab completion work like bash
 set listchars=trail:- " Show trailing spaces
 
+let g:format_debug = v:true
+
 "--------------------------
 "Auto Commands
 "--------------------------

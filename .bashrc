@@ -31,11 +31,13 @@ alias dc="docker-compose"
 alias open="xdg-open"
 
 # work
-alias humi="cd ~/code/humility"
-alias ui="cd ~/code/humility/applications/ui"
-alias hr="cd ~/code/humility/applications/hr"
-alias payroll="cd ~/code/humility/applications/payroll"
-alias admin="cd ~/code/humility/applications/admin"
+if [[ $HOSTNAME == workpad ]]; then
+	alias humi="cd ~/code/humility"
+	alias ui="cd ~/code/humility/applications/ui"
+	alias hr="cd ~/code/humility/applications/hr"
+	alias payroll="cd ~/code/humility/applications/payroll"
+	alias admin="cd ~/code/humility/applications/admin"
+fi
 
 export PS1="\u@\h \[\e[32m\]\w \[\e[94m\]\$(parse_git_branch)\[\e[00m\]$ "
 

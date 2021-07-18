@@ -96,9 +96,9 @@ nvim_lsp.tsserver.setup {
 }
 
 require"format".setup {
-    ["*"] = {
-        {cmd = {"sed -i 's/[ \t]*$//'"}} -- remove trailing whitespace
-    },
+    -- ["*"] = {
+    --     {cmd = {"sed -i 's/[ \t]*$//'"}} -- remove trailing whitespace
+    -- },
     css = {{cmd = {"prettier -w"}}},
     html = {{cmd = {"prettier -w"}}},
     php = {{cmd = {"prettier -w"}}},
@@ -112,7 +112,7 @@ require"format".setup {
     typescriptreact = {
         {cmd = {"prettier -w", "./node_modules/.bin/eslint --fix"}}
     },
-    shellscript = {cmd = {"shfmt -ci"}}
+    shellcheck = {cmd = {"notify-send hey; shfmt -w"}}
 }
 
 local lspconfig = require 'lspconfig'
