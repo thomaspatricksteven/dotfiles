@@ -53,3 +53,4 @@ configs
 gofumpt
 permissibles
 nullable
+Errorf

@@ -1,16 +1,18 @@
 #!/bin/bash
 
-source $HOME/.asdf/asdf.sh
-source $HOME/.asdf/completions/asdf.bash
+source "$HOME"/.asdf/asdf.sh
+source "$HOME"/.asdf/completions/asdf.bash
 source /usr/share/fzf/key-bindings.bash
 source /usr/share/fzf/completion.bash
-
 
 # alternatives
 alias ls='exa --group-directories-first --icons --color-scale'
 alias vim=nvim
 alias cat=bat
 alias tree='tree -C -a'
+
+# alias aaa='echo $PWD'
+# alias bbb="echo $PWD"
 
 # interactive improvements
 alias mv="mv -iv"
